@@ -35,15 +35,51 @@ body {
   color: var(--bg);
 }
 
-/* ── Background Canvas ───────────────────────────── */
-#bg {
+/* ── Parallax Background ─────────────────────────── */
+.parallax-bg {
   position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.parallax-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0;
+  transition: transform 0.1s ease-out;
+  animation: orbFadeIn 2s ease forwards;
+}
+
+@keyframes orbFadeIn {
+  to { opacity: 1; }
+}
+
+.parallax-grid {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  opacity: 0.35;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transition: transform 0.15s ease-out;
+}
+
+.parallax-particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  transition: transform 0.2s ease-out;
 }
 
 /* ── Nav ─────────────────────────────────────────── */
@@ -103,7 +139,8 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  text-align: center;
 }
 
 .hero h1 {
@@ -115,12 +152,6 @@ main {
   text-transform: lowercase;
 }
 
-.tagline {
-  font-size: 1.2rem;
-  color: var(--fg-dim);
-  font-family: var(--mono);
-  letter-spacing: 0.02em;
-}
 
 /* ── Sections ────────────────────────────────────── */
 .about, .projects, .contact {
