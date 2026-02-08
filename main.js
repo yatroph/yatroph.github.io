@@ -540,6 +540,10 @@
       float grain = gnoise(pTex * 2500.0 + t * 0.3) * 0.003;
       col += grain;
 
+      // Desaturate slightly
+      float luma = dot(col, vec3(0.2126, 0.7152, 0.0722));
+      col = mix(col, vec3(luma), 0.15);
+
       gl_FragColor = vec4(col, 1.0);
     }
   `;
