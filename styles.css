@@ -113,19 +113,14 @@ nav {
   font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 0.9;
-  color: #121214;
+  color: #1a1a1e;
   text-transform: lowercase;
   transition: font-family 0.3s;
-  /* Matte finish + foggy glow — layered diffuse halos */
+  /* Matte finish */
   text-shadow:
     0 0 1px rgba(18, 18, 20, 0.6),
-    0 0 3px rgba(18, 18, 20, 0.15),
     0 1px 0 rgba(30, 30, 35, 0.25),
-    0 -1px 0 rgba(8, 8, 10, 0.3),
-    0 0 20px rgba(180, 175, 170, 0.08),
-    0 0 50px rgba(180, 175, 170, 0.06),
-    0 0 100px rgba(170, 165, 165, 0.04),
-    0 0 160px rgba(160, 155, 160, 0.03);
+    0 -1px 0 rgba(8, 8, 10, 0.3);
 }
 
 .hero h1 span {

@@ -519,6 +519,18 @@
       vec3 gradCool = vec3(0.005, 0.008, 0.022);
       col += mix(gradWarm, gradCool, gradT);
 
+      // ── Title glow — noisy subtle bloom behind the text ──
+      vec2 titleCenter = vec2(0.0, 0.05);
+      float glowDist = length((p - titleCenter) * vec2(0.7, 1.2));
+      float glow = exp(-glowDist * glowDist * 8.0);
+      // Break up the smooth falloff with noise so it looks like fog, not a spotlight
+      float glowNoise = gnoise(p * 3.0 + t * 0.02) * 0.4
+                       + gnoise(p * 7.0 - t * 0.015) * 0.3
+                       + gnoise(p * 15.0 + t * 0.01) * 0.15;
+      glow *= 0.7 + glowNoise * 0.6;
+      glow = max(0.0, glow);
+      col += vec3(0.03, 0.02, 0.015) * glow;
+
       // Warm vignette (subtle)
       float vig = 1.0 - length(uv - 0.5) * 0.2;
       col *= vig;
