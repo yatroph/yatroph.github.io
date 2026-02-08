@@ -864,24 +864,24 @@
       dragging: false,
       animating: false,
       flung: false,
-      resting: false,        // sitting on the floor
-      crawling: false,       // actively crawling back home
-      restTimer: null,        // countdown to crawl home
+      resting: false,
+      crawling: false,
+      restTimer: null,
       fearX: 0, fearY: 0, fearRot: 0,
-      fearEnterTime: 0,              // when mouse first entered fear radius
+      fearEnterTime: 0,
       phase: idx * 2.7 + Math.random() * 4,
       lastMouseX: 0, lastMouseY: 0,
       mouseVX: 0, mouseVY: 0,
-      homeX: 0, homeY: 0,    // cached home position (center of span in viewport)
+      homeX: 0, homeY: 0,
     };
     letterStates.push(st);
 
-    const gravity = 0.5;        // pixels per frame^2
-    const airFriction = 0.997;  // very little air drag — letters fly far
-    const bounceDamp = 0.72;    // bouncier — keeps more energy on bounce
-    const rotFriction = 0.985;  // rotation slows gradually
-    const restDelay = 3000;     // ms to wait on floor before crawling home
-    const crawlSpeed = 0.02;    // lerp factor for crawl back
+    const gravity = 0.5;
+    const airFriction = 0.997;
+    const bounceDamp = 0.72;
+    const rotFriction = 0.985;
+    const restDelay = 3000;
+    const crawlSpeed = 0.02;
 
     function getHomePosAndBounds() {
       // Use the span's actual bounding box for silhouette-accurate collisions
@@ -1152,61 +1152,6 @@ sections.forEach((s) => observer.observe(s));
   requestAnimationFrame(updateGlints);
 })();
 
-/* ── Peel-away interaction ───────────────────────── */
-(function () {
-  const peelPage = document.getElementById("peel-page");
-  const peelTab = document.getElementById("peel-tab");
-  const unpeelBtn = document.getElementById("unpeel-btn");
-  const peelMenu = document.getElementById("peel-menu");
-  if (!peelPage || !peelMenu) return;
-
-  let peeled = false;
-
-  function setPeel(shouldPeel) {
-    peeled = shouldPeel;
-    peelPage.classList.toggle("peeled", peeled);
-
-    if (peeled) {
-      setTimeout(() => {
-        peelMenu.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 200);
-    }
-  }
-
-  // Corner tab triggers peel
-  if (peelTab) {
-    peelTab.addEventListener("click", () => setPeel(true));
-  }
-
-  // Red "back" button unpeels
-  if (unpeelBtn) {
-    unpeelBtn.addEventListener("click", () => {
-      setPeel(false);
-      // Scroll back to content
-      setTimeout(() => {
-        peelPage.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 200);
-    });
-  }
-
-  // Menu links with data-unpeel also close the peel
-  peelMenu.querySelectorAll("[data-unpeel]").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      e.preventDefault();
-      setPeel(false);
-      const href = link.getAttribute("href");
-      setTimeout(() => {
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: "smooth" });
-      }, 400);
-    });
-  });
-
-  // Escape to close
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && peeled) setPeel(false);
-  });
-})();
 
 /* ── Smooth nav scroll ───────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
