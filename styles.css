@@ -241,6 +241,15 @@ nav {
   color: var(--fg-dim);
 }
 
+.project-tech {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--fg-dim);
+  margin-top: 0.25rem;
+}
+
 .project-arrow {
   position: absolute;
   top: 2rem;
