@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>yatroph</title>
+  <meta name="description" content="Arash Fallahdarrehchi — electrical engineering, power systems, hardware, automation, and software projects.">
+  <title>yatroph — engineering projects</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23121214'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial' font-size='25' font-weight='700' fill='%23d8d8dc'%3EY%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,8 +20,9 @@
   </nav>
 
   <section class="hero" id="hero">
-    <canvas id="bg"></canvas>
+    <canvas id="bg" aria-hidden="true"></canvas>
     <h1 id="title"><span>y</span><span>a</span><span class="letter-t">t</span><span>r</span><span class="letter-o">o</span><span>p</span><span>h</span></h1>
+    <p class="hero-subtitle">power systems · hardware · automation · software</p>
   </section>
 
   <div class="content">
@@ -27,17 +30,17 @@
       <section class="about" id="about">
         <div class="section-label">about</div>
         <div class="about-content">
-          <p>Electrical engineer.</p>
+          <p>Electrical Engineering student building across power systems, automation, hardware, and software.</p>
         </div>
       </section>
 
       <section class="projects" id="projects">
         <div class="section-label">projects</div>
         <div class="project-grid">
-          <a class="project-card" href="https://github.com/yatroph/Spot-Welder-Motor-Controller-ECE3399B" target="_blank" rel="noopener">
-            <span class="project-title">Spot Welder Controller</span>
-            <span class="project-desc">Closed-loop resistance spot welding system with PI force control, 20kHz sampling, and real-time PyQt5 diagnostics GUI. Senior design capstone.</span>
-            <span class="project-tech">Arduino, Python, PyQt5</span>
+          <a class="project-card" href="https://canopy-omega-eight.vercel.app" target="_blank" rel="noopener">
+            <span class="project-title">Canopy</span>
+            <span class="project-desc">Solo-built investment-tracking application spanning Flask APIs, a JavaScript interface, cloud deployment, and a Capacitor iOS shell. Released on the App Store in August 2026.</span>
+            <span class="project-tech">Flask, JavaScript, Capacitor</span>
             <span class="project-arrow">&rarr;</span>
           </a>
           <a class="project-card" href="#hero">
@@ -46,22 +49,16 @@
             <span class="project-tech">WebGL, GLSL</span>
             <span class="project-arrow">&uarr;</span>
           </a>
-          <a class="project-card" href="https://github.com/yatroph/home-server" target="_blank" rel="noopener">
-            <span class="project-title">Home Server</span>
-            <span class="project-desc">Raspberry Pi hub with AI chat via Claude CLI, remote file browsing over SSH, cloud storage, Tailscale device dashboard, and Wake-on-LAN.</span>
-            <span class="project-tech">FastAPI, Python, Tailscale</span>
-            <span class="project-arrow">&rarr;</span>
-          </a>
           <a class="project-card" href="https://github.com/yatroph/screenshot-relay" target="_blank" rel="noopener">
             <span class="project-title">Screenshot Relay</span>
-            <span class="project-desc">Cross-device screenshot capture and relay to Claude Desktop with sender/receiver architecture, system status dashboard, and hotkey triggers.</span>
-            <span class="project-tech">Python, Networking</span>
+            <span class="project-desc">Cross-device screenshot capture and delivery with sender/receiver architecture, system-status monitoring, and hotkey triggers.</span>
+            <span class="project-tech">Python, Networking, Automation</span>
             <span class="project-arrow">&rarr;</span>
           </a>
           <a class="project-card" href="https://github.com/yatroph/gemini-ocr" target="_blank" rel="noopener">
             <span class="project-title">Gemini OCR</span>
-            <span class="project-desc">Batch OCR tool using Google Gemini to extract text and math notation from images across folders with progress tracking.</span>
-            <span class="project-tech">Python, Gemini API</span>
+            <span class="project-desc">Batch OCR utility that extracts text and mathematical notation from image collections, with folder processing and progress tracking.</span>
+            <span class="project-tech">Python, Gemini API, OCR</span>
             <span class="project-arrow">&rarr;</span>
           </a>
         </div>
@@ -71,6 +68,8 @@
         <div class="section-label">links</div>
         <div class="link-row">
           <a href="https://github.com/yatroph" target="_blank" rel="noopener">GitHub &rarr;</a>
+          <a href="https://www.linkedin.com/in/arashfallahdarrehchi" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+          <a href="mailto:afalla3@uwo.ca">Email &rarr;</a>
         </div>
       </section>
     </main>
